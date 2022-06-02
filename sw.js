@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
 }
 
 
-const urlsToCache = ["/","/PWA-test","style.css"];
+const urlsToCache = ["/PWA-test","style.css"];
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open("pwa-assets")
