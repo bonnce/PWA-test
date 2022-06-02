@@ -28,6 +28,7 @@ self.addEventListener("fetch", event => {
             caches.open("pwa-assets").then(cache => {
                 cache.put(event.request, response.clone());
             });
+            console.log(response.clone())
           });
           // prioritize cached response over network
           return cachedResponse || networkFetch;
