@@ -19,10 +19,17 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    caches.open('pwa-assets').then(cache =>
     event.respondWith(
-        cache.match(event.request)
-        .then(cachedResponse => cachedResponse || fetch(event.request))
-        )
+      caches.match(event.request).then(cachedResponse => {
+          const networkFetch = fetch(event.request).then(response => {
+            // update the cache with a clone of the network response
+            caches.open("pwa-assets").then(cache => {
+                cache.put(event.request, response.clone());
+            });
+          });
+          // prioritize cached response over network
+          return cachedResponse || networkFetch;
+      }
     )
-});
+   )
+ });
