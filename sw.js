@@ -17,5 +17,18 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    console.log(`URL requested: ${event.request.url}`);
+    event.respondWith(()=>{
+            const simpleResponse = new Response("Body of the HTTP response");
+
+            const options = {
+            status: 200,
+            headers: {
+                'Content-type': 'text/html'
+            }
+            };
+            const htmlResponse = new Response(`<b>This is a response for the already sw installed</b> content
+            directly from ${event.request.url}`,
+            options)
+            return htmlResponse
+        })
 });
