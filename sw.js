@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
 }
 
 
-const urlsToCache = ["/PWA-test","style.css","darkhole.jpg"];
+const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg"];
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open("pwa-assets")
@@ -28,21 +28,6 @@ self.addEventListener("fetch", event => {
     })
     caches.match(event.request).then(response=>{
         console.log('response caches',response)
-    })
-
-    const options ={
-        ignoreSearch:true,
-        ignoreMethod:true,
-        ignoreVary:true,
-    }
-    caches.open('pwa-assets').then(cache=>{
-        console.log('cache',cache)
-        cache.match(event.request,options).then(response =>{
-            console.log('response cache with options',response)
-        })
-    })
-    caches.match(event.request,options).then(response=>{
-        console.log('response caches with options',response)
     })
 //     event.respondWith(
 //       caches.match(matchRequest).then(cachedResponse => {
