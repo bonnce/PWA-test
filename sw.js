@@ -19,8 +19,10 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
+    const matchRequest = event.request.url.replace('/PWA-test/','')
+    console.log(matchRequest)
     event.respondWith(
-      caches.match(event.request.url.replace('/PWA-test/','')).then(cachedResponse => {
+      caches.match(matchRequest).then(cachedResponse => {
           const networkFetch = fetch(event.request).then(response => {
             // update the cache with a clone of the network response
             caches.open("pwa-assets").then(cache => {
