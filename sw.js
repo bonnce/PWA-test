@@ -19,7 +19,7 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    const matchRequest = event.request.url.replace('/PWA-test/','')
+    const matchRequest = event.request.url.substring(/^https.+\.io\//)[0]
     console.log(matchRequest)
     event.respondWith(
       caches.match(matchRequest).then(cachedResponse => {
@@ -35,3 +35,5 @@ self.addEventListener("fetch", event => {
     )
    )
  });
+
+ 
