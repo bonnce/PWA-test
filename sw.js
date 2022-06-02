@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
 }
 
 
-const urlsToCache = ["/"];
+const urlsToCache = ["/PWA-test","style.css"];
 self.addEventListener("install", (event) => {
    event.waitUntil(async () => {
       const cache = await caches.open("pwa-assets");
@@ -17,14 +17,6 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    const options = {
-        status: 200,
-        headers: {
-            'Content-type': 'text/html'
-        }
-        };
-    const htmlResponse = new Response(`<b>This is a response for the already sw installed</b> content
-    directly from ${event.request.url}`,
-    options)
-    event.respondWith(htmlResponse)
+    cache.open('pwa-assets').then(cache =>
+    event.respondWith(cache.match(event.request)))
 });
