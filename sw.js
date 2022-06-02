@@ -19,7 +19,7 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    const matchRequest = event.request.url.replace(/\.io.+/,'.io/')
+    const matchRequest = event.request.url.replace(/\.io.+/,'.io')
     console.log(matchRequest)
     event.respondWith(
       caches.match(matchRequest).then(cachedResponse => {
