@@ -20,7 +20,8 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
     event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
+      caches.match(event.request.url).then(cachedResponse => {
+          console.log(cachedResponse,event.request)
           const networkFetch = fetch(event.request).then(response => {
             // update the cache with a clone of the network response
             caches.open("pwa-assets").then(cache => {
