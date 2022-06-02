@@ -1,9 +1,4 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("/PWA-test/sw.js");
-}
-
-
-const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg"];
+const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg",'app.js'];
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open("pwa-assets")
@@ -30,8 +25,8 @@ self.addEventListener("fetch", event => {
     caches.match(event.request.url).then(response=>{
         console.log('response caches',response)
     })
-    fetch(caches).then(resp=>{
-        console.log('fetch resp', resp)
+    fetch(event.request).then(response=>{
+        console.log('fetch response',response)
     })
 //     event.respondWith(
 //       caches.match(matchRequest).then(cachedResponse => {
