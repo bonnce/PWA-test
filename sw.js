@@ -19,6 +19,7 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
+    console.log('event',event.request.url)
     console.log('caches',caches)
     caches.open('pwa-assets').then(cache=>{
         console.log('cache',cache)
@@ -26,8 +27,11 @@ self.addEventListener("fetch", event => {
             console.log('response cache',response)
         })
     })
-    caches.match(event.request).then(response=>{
+    caches.match(event.request.url).then(response=>{
         console.log('response caches',response)
+    })
+    fetch(caches).then(resp=>{
+        console.log('fetch resp', resp)
     })
 //     event.respondWith(
 //       caches.match(matchRequest).then(cachedResponse => {
