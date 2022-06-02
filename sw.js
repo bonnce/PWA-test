@@ -17,18 +17,14 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    event.respondWith(()=>{
-            const simpleResponse = new Response("Body of the HTTP response");
-
-            const options = {
-            status: 200,
-            headers: {
-                'Content-type': 'text/html'
-            }
-            };
-            const htmlResponse = new Response(`<b>This is a response for the already sw installed</b> content
-            directly from ${event.request.url}`,
-            options)
-            return htmlResponse
-        })
+    const options = {
+        status: 200,
+        headers: {
+            'Content-type': 'text/html'
+        }
+        };
+    const htmlResponse = new Response(`<b>This is a response for the already sw installed</b> content
+    directly from ${event.request.url}`,
+    options)
+    event.respondWith(htmlResponse)
 });
