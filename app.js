@@ -3,8 +3,6 @@ let db;
 const DBNAME = 'songsDB'
 const COLLNAME = 'songs'
 
-const form = document.querySelector('#form');
-
 window.addEventListener('load',()=>{
     //initialize indexedDB
     getIndexedDB();
@@ -60,15 +58,20 @@ const handleDB = (item)=>{
 }
 
 
-form.addEventListener('submit',(event)=>{
-    event.preventDefault();
 
-    const songName = document.querySelector('input[name="songName"]');
-    const type = document.querySelector('#input[name="type"]');
-    const like = document.querySelector('#input[name="like"]');
+document.addEventListener('DOMContentLoaded ',()=>{
+    const form = document.querySelector('#form');
 
-    const item = {songName,type,like}
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault();
     
-    handleDB(item)
+        const songName = document.querySelector('input[name="songName"]');
+        const type = document.querySelector('#input[name="type"]');
+        const like = document.querySelector('#input[name="like"]');
+    
+        const item = {songName,type,like}
+        
+        handleDB(item)
+    })
 })
 
