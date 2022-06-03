@@ -1,6 +1,7 @@
 :root{
     font-family: Roboto,-apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px ;
+    --dark-blue:#180583;
 }
 *{
     margin:0;
@@ -24,4 +25,66 @@ p{
 
 h1{
     font-size: 2.5rem;
+}
+
+.image-container{
+    position: relative;
+    width: fit-content;
+    margin: 1rem auto;
+}
+
+.image-container h3{
+    color: #EEFFFFE0;
+    position: absolute;
+    top:25%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%,-75%);
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px black;
+    text-transform: uppercase;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    accent-color: var(--dark-blue);
+}
+
+.input-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+input[type=text]{
+    height: max-content;
+    font-size: 1rem;
+    padding:.5rem;
+}
+
+input[type=checkbox]{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+input[type=button]{
+    width: fit-content;
+    font-size: 1rem;
+    color:white;
+    background-color: var(--dark-blue);
+    padding:.5rem;
+    border-radius: 5px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    align-self: center;
+}
+input[type=button]:hover{
+    background-color: blue;
+}
+
+input[type=button]:active{
+    background-color: cyan;
 }

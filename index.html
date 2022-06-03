@@ -10,9 +10,23 @@
 </head>
 <body>
     <div id="main">
-        <h1>Prueba de PWA</h1>
-        <p>Esta es una prueba de pwa</p>
-        <img src="darkhole.jpg" alt="dark hole">
+        <h1>Coleccia tus canciones</h1>
+        <p>Ingresa una canción para guardarla</p>
+        <div class="image-container">
+            <h3>canciones cósmicas</h3>
+            <img src="darkhole.jpg" alt="dark hole">
+        </div>
+        <form id="form" onsubmit="submitHandler()">
+            <div class="input-group">
+                <input type="text" name="songName" id="songName" placeholder="Nombre de la canción">
+                <input type="text" name="type" id="type" placeholder="Género de la canción">
+                <div class="input-item">
+                    <label for="like">Es tu favorita?</label>
+                    <input type="checkbox" name="like" id="like">
+                </div>
+                <input type="button" id="submit" value="Submit">
+            </div>        
+        </form>
     </div>
 </body>
 </html>
