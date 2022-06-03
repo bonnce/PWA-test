@@ -1,8 +1,29 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("sw.js");
-}
+let db;
+
+const DBNAME = 'songsDB'
+const COLLNAME = 'songs'
 
 const form = document.querySelector('#form');
+
+document.addEventListener('load',()=>{
+    //initialize indexedDB
+    getIndexedDB();
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("sw.js");
+    }
+
+    const request = openDB(DBNAME,1)
+    request.onerror = (error)=>{
+        console.error(error)
+    }
+    request.onsuccess = (event)=>{
+        db = event.result
+    }
+
+    //create a collection
+    createDB(COLLNAME,{ autoIncrement : true, keyPath:'id' },['name'],request)
+})
 
 const getIndexedDB = ()=>{
     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
@@ -34,23 +55,6 @@ const dbAdd = (db,name,item) => {
 
 
 const handleDB = (item)=>{
-    //initialize indexedDB
-    getIndexedDB();
-
-    let db;
-    const DBNAME = 'songsDB'
-    const COLLNAME = 'songs'
-    //open a new datadase
-    const request = openDB(DBNAME,1)
-    request.onerror = (error)=>{
-        console.error(error)
-    }
-    request.onsuccess = (event)=>{
-        db = event.result
-    }
-    //create a collection
-    createDB(COLLNAME,{ autoIncrement : true, keyPath:'id' },['name'],request)
-
     //add an item
     dbAdd(db,COLLNAME,item)
 }
@@ -66,6 +70,5 @@ form.addEventListener('submit',(event)=>{
     const item = {songName,type,like}
     
     handleDB(item)
-
 })
 
