@@ -5,7 +5,7 @@ const COLLNAME = 'songs'
 
 const form = document.querySelector('#form');
 
-document.addEventListener('load',()=>{
+window.addEventListener('load',()=>{
     //initialize indexedDB
     getIndexedDB();
 
