@@ -16,11 +16,15 @@ window.addEventListener('load',()=>{
         console.error(error)
     }
     request.onsuccess = (event)=>{
-        db = event.result
+        db = event.target.result
+        console.log('success')
+        listDB()
+
     }
 
     //create a collection
     createDB(COLLNAME,{ autoIncrement : true, keyPath:'id' },['name'],request)
+
 })
 
 const getIndexedDB = ()=>{
@@ -45,27 +49,80 @@ const createDB = (name, options,index,request)=>{
     }
 }
 
-const dbAdd = (db,name,item) => {
+const addData = (db,name,item) => {
     const transaction = db.transaction([name],'readwrite')
+    transaction.onerror = (err)=>{
+        console.error(err)
+    }
+    transaction.oncomplete = (e)=>{
+        console.log('complete!')
+    }
     const objectStore = transaction.objectStore(name);
     objectStore.add(item)
+}
+
+const getAllData = (db,nameCol,callback) =>{
+
+    const transaction = db.transaction([nameCol],'readonly')
+    transaction.onerror = (err)=>{
+        console.error(err)
+    }
+    transaction.oncomplete = (e)=>{
+        console.log('complete!')
+    }
+
+    const objectStore = transaction.objectStore(nameCol);
+
+    objectStore.openCursor().onsuccess = (event) => {
+        const cursor = event.target.result;
+        if (cursor) {
+          callback(cursor)
+          cursor.continue();
+        }
+      };
 }
 
 
 const handleDB = (item)=>{
     //add an item
-    dbAdd(db,COLLNAME,item)
+    addData(db,COLLNAME,item)
+}
+
+const listDB = ()=>{
+    if(db){
+        const list = document.querySelector('#col2');
+        const container = document.createElement('div')
+        list.append(container)
+        getAllData(db,COLLNAME, (cursor) =>{
+            const {id,songName,type,like} = cursor.value
+
+            const wrapper = document.createElement('ul')
+            const header = document.createElement('p')
+            const liName = document.createElement('li')
+            const liType = document.createElement('li')
+            const liLike = document.createElement('li')
+
+            header.innerText = `Canción ${id}`
+            liName.innerText = songName
+            liType.innerText = type
+            liLike.innerText = like ? 'Mi favorito 😍' : 'No significa nada para mi 🥶'
+
+            wrapper.append(header)
+            wrapper.append(liName)
+            wrapper.append(liType)
+            wrapper.append(liLike)
+            container.append(wrapper)
+        })
+    }
 }
 
 
-
 const submitHandler = ()=>{
-        
-    const songName = document.querySelector('input[name="songName"]');
-    const type = document.querySelector('#input[name="type"]');
-    const like = document.querySelector('#input[name="like"]');
+    const songName = document.querySelector('input[name="songName"]').value;
+    const type = document.querySelector('input[name="type"]').value;
+    const like = document.querySelector('input[name="like"]').checked;
 
     const item = {songName,type,like}
-    
+
     handleDB(item)
 }

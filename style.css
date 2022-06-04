@@ -16,7 +16,54 @@ body{
 }
 
 #main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#col1{
     text-align: center;
+}
+
+#col2 h2{
+    text-align: center;
+    font-size: 1.8rem;
+    border-top: 5px dashed var(--dark-blue);
+    border-left: 5px dashed var(--dark-blue);
+    border-right: 5px dashed var(--dark-blue);
+
+}
+
+#col2 div{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 5px dashed var(--dark-blue);
+    padding: 1.5rem;
+    height: 80vh;
+    width: calc(40ch + 4rem);
+    overflow:auto;
+}
+
+#col2 div ul{
+    width: 20ch;
+    border: 3px dotted blue;
+    padding: .5rem;
+}
+
+#col2 div ul p{
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.5rem;
+    border-bottom: 3px dotted blue;
+}
+
+li{
+    list-style: none;
+    margin: .5rem 0;
 }
 
 p{
@@ -70,7 +117,7 @@ input[type=checkbox]{
     height: 1.3rem;
 }
 
-input[type=button]{
+input[type=submit]{
     width: fit-content;
     font-size: 1rem;
     color:white;
@@ -81,10 +128,10 @@ input[type=button]{
     letter-spacing: 2px;
     align-self: center;
 }
-input[type=button]:hover{
+input[type=submit]:hover{
     background-color: blue;
 }
 
-input[type=button]:active{
+input[type=submit]:active{
     background-color: cyan;
 }
