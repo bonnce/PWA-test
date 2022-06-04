@@ -59,19 +59,13 @@ const handleDB = (item)=>{
 
 
 
-document.addEventListener('DOMContentLoaded ',()=>{
-    const form = document.querySelector('#form');
-
-    form.addEventListener('submit',(event)=>{
-        event.preventDefault();
-    
-        const songName = document.querySelector('input[name="songName"]');
-        const type = document.querySelector('#input[name="type"]');
-        const like = document.querySelector('#input[name="like"]');
-    
-        const item = {songName,type,like}
+const submitHandler = ()=>{
         
-        handleDB(item)
-    })
-})
+    const songName = document.querySelector('input[name="songName"]');
+    const type = document.querySelector('#input[name="type"]');
+    const like = document.querySelector('#input[name="like"]');
 
+    const item = {songName,type,like}
+    
+    handleDB(item)
+}
