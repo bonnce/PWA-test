@@ -8,11 +8,18 @@
     padding:0;
 }
 
+
 body{
     background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#col2{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 #main{
@@ -33,7 +40,6 @@ body{
     border-top: 5px dashed var(--dark-blue);
     border-left: 5px dashed var(--dark-blue);
     border-right: 5px dashed var(--dark-blue);
-
 }
 
 #col2 div{
@@ -135,4 +141,14 @@ input[type=submit]:hover{
 
 input[type=submit]:active{
     background-color: cyan;
+}
+
+
+@media (max-width: 950px) {
+    #col1,#col2{
+        width: 90%;
+    }
+    #col2 div{
+        width: auto;
+    }
 }
