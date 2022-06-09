@@ -45,7 +45,7 @@
     ],
     "start_url" : "PWA-test/",
     "display" : "standalone",
-    "id" :"PWATEST",
+    "id" :"PWA-test/",
     "theme_color" : "#222222",
     "background_color" : "#180583",
     "lang" : "es",

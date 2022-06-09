@@ -1,4 +1,4 @@
-const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg",'app.js',"docs"];
+const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg",'app.js',"docs","docs/icons"];
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open("pwa-assets")
@@ -21,7 +21,9 @@ self.addEventListener("fetch", event => {
             caches.open("pwa-assets").then(cache => {
                 cache.put(event.request, response.clone());
             });
-            console.log(response.clone())
+          })
+          .catch(err=>{
+            console.error(err)
           });
           // prioritize cached response over network
           return cachedResponse || networkFetch;
