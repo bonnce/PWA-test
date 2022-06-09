@@ -117,7 +117,8 @@ const listDB = ()=>{
 }
 
 
-const submitHandler = ()=>{
+const submitHandler = (e)=>{
+    e.preventDefault()
     const songName = document.querySelector('input[name="songName"]').value;
     const type = document.querySelector('input[name="type"]').value;
     const like = document.querySelector('input[name="like"]').checked;
@@ -125,4 +126,5 @@ const submitHandler = ()=>{
     const item = {songName,type,like}
 
     handleDB(item)
+    location.reload()
 }
