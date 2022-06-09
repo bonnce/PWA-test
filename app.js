@@ -117,14 +117,25 @@ const listDB = ()=>{
 }
 
 
-const submitHandler = (e)=>{
-    e.preventDefault()
-    const songName = document.querySelector('input[name="songName"]').value;
-    const type = document.querySelector('input[name="type"]').value;
-    const like = document.querySelector('input[name="like"]').checked;
 
-    const item = {songName,type,like}
+const submitHandler = ()=>{
+    const form = document.querySelector('#form')
+    form.addEventListener('submit',event=>{
+        event.preventDefault()
+        console.log(event)
+        const songName = document.querySelector('input[name="songName"]').value;
+        const type = document.querySelector('input[name="type"]').value;
+        const like = document.querySelector('input[name="like"]').checked;
+    
+        const item = {songName,type,like}
+    
+        handleDB(item)
 
-    handleDB(item)
-    location.reload()
+        location.reload()
+    })    
+
 }
+
+window.addEventListener('DOMContentLoaded',()=>{
+    submitHandler()
+})
