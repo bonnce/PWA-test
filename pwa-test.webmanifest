@@ -1,0 +1,54 @@
+{
+    "name" : "PWA Test app",
+    "short_name" : "PWA",
+    "icons" : [
+        {
+            "src": "icon/Icon-16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "icon/Icon-32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "icon/Icon-64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "icon/Icon-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+         },
+        {
+            "src": "icon/Icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+         },
+         {
+            "src": "icon/Icon-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+         },
+         {
+            "src": "icon/Icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+         },
+         {
+            "src": "icon/ios/Icon-1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+         }
+    ],
+    "start_url" : "/PWA-test",
+    "display" : "standalone",
+    "id" :"PWATEST",
+    "theme_color" : "#222222",
+    "background_color" : "#180583",
+    "lang" : "es",
+    "orientation" : "portrait",
+    "description" : "A simple app test"
+}
