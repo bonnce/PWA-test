@@ -1,4 +1,4 @@
-const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg",'app.js',"./icons/*"];
+const urlsToCache = ["/PWA-test/","style.css","darkhole.jpg",'app.js',"icons/Icon-192.png","./icons/*"];
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open("pwa-assets")
