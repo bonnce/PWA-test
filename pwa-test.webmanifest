@@ -43,6 +43,8 @@
             "sizes": "1024x1024"
          }
     ],
+    "start_url" : "PWA-test/",
+    "scope" : "/",
     "display" : "standalone",
     "id" :"PWA-test/",
     "theme_color" : "#222222",
