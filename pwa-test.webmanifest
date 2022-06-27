@@ -5,8 +5,58 @@
         {
             "src": "docs/icons/snow.svg",
             "type": "image/svg",
-            "sizes": "any",
-            "purpose": "any"
+            "sizes": "512x512",
+            "purpose": "maskable"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "16x16"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "32x32"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "64x64"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "128x128"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "180x180"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "192x192"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "196x196"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "256x256"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "512x512"
+        },
+        {
+            "src": "docs/icons/snow.svg",
+            "type": "image/svg",
+            "sizes": "1024x1024"
         }
     ],
     "start_url" : "/PWA-test/",
