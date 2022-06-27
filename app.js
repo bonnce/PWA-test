@@ -3,6 +3,15 @@ let db;
 const DBNAME = 'songsDB'
 const COLLNAME = 'songs'
 
+let deferredPrompt;
+const handleBeforeInstall = ()=>{
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        handleInstall();
+    });
+}
+    
 window.addEventListener('load',()=>{
     //initialize indexedDB
     getIndexedDB();
@@ -10,6 +19,7 @@ window.addEventListener('load',()=>{
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register("sw.js");
     }
+    handleBeforeInstall()
 
     const request = openDB(DBNAME,1)
     request.onerror = (error)=>{
@@ -24,6 +34,7 @@ window.addEventListener('load',()=>{
 
     //create a collection
     createDB(COLLNAME,{ autoIncrement : true, keyPath:'id' },['name'],request)
+
 
 })
 
@@ -139,3 +150,18 @@ const submitHandler = ()=>{
 window.addEventListener('DOMContentLoaded',()=>{
     submitHandler()
 })
+
+const handleInstall = async ()=>{
+    const button = document.createElement('button')
+    button.innerText = 'Install'
+    button.addEventListener('click',(e)=>{
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        if (outcome === 'accepted') {
+            button.parentNode.removeChild(button)
+        }
+    })
+    const install = document.querySelector('#install')
+    install.appendChild(button)
+}
