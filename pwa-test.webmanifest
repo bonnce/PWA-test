@@ -6,7 +6,7 @@
             "src": "docs/icons/snow.svg",
             "type": "image/svg",
             "sizes": "any",
-            "purpose": "maskable"
+            "purpose": "any"
         }
     ],
     "start_url" : "/PWA-test/",
