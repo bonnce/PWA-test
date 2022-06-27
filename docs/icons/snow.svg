@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>background</title>
+  <rect fill="#9b9595" height="512" id="svg_1" stroke="#000000" width="512" x="0" y="0"/>
+ </g>
+ <g class="layer">
+  <title>image</title>
+  <ellipse cx="258" cy="327" fill="#ffffff" id="svg_2" rx="100" ry="100" stroke="#000000"/>
+  <ellipse cx="257" cy="207" fill="#ffffff" id="svg_3" rx="70" ry="70" stroke="#000000"/>
+  <ellipse cx="256" cy="129" fill="#ffffff" id="svg_4" rx="50" ry="50" stroke="#000000"/>
+  <ellipse cx="236" cy="108" fill="#000000" id="svg_5" rx="5" ry="5" stroke="#000000"/>
+  <ellipse cx="275" cy="108.5" fill="#000000" id="svg_6" rx="5" ry="5" stroke="#000000"/>
+  <ellipse cx="255" cy="128" fill="#ff9000" id="svg_7" rx="9" ry="9" stroke="#000000"/>
+  <ellipse cx="256" cy="133" fill="#ff6600" id="svg_8" rx="5" ry="5" stroke="#000000"/>
+ </g>
+</svg>
