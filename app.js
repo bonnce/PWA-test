@@ -4,13 +4,6 @@ const DBNAME = 'songsDB'
 const COLLNAME = 'songs'
 
 let deferredPrompt;
-const handleBeforeInstall = ()=>{
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        handleInstall();
-    });
-}
     
 window.addEventListener('load',()=>{
     //initialize indexedDB
@@ -19,7 +12,6 @@ window.addEventListener('load',()=>{
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register("sw.js");
     }
-    handleBeforeInstall()
 
     const request = openDB(DBNAME,1)
     request.onerror = (error)=>{
@@ -37,6 +29,17 @@ window.addEventListener('load',()=>{
 
 
 })
+
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const install = document.querySelector('#install')
+    const button = addButton()
+    install.appendChild(button)
+});
+
+
 
 const getIndexedDB = ()=>{
     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
@@ -151,17 +154,21 @@ window.addEventListener('DOMContentLoaded',()=>{
     submitHandler()
 })
 
-const handleInstall = async ()=>{
-    const button = document.createElement('button')
-    button.innerText = 'Install'
-    button.addEventListener('click',(e)=>{
+const handleInstall = async (e)=>{
+    if(deferredPrompt){
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
         deferredPrompt = null;
         if (outcome === 'accepted') {
-            button.parentNode.removeChild(button)
+            e.target.parentNode.removeChild(e.target)
         }
-    })
-    const install = document.querySelector('#install')
-    install.appendChild(button)
+    }
+}
+
+const addButton = ()=>{
+    const button = document.createElement('button')
+    button.innerText = 'Install'
+    button.addEventListener('click',handleInstall)
+    button.classList.add('button')
+    return button
 }

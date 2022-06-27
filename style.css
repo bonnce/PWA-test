@@ -128,7 +128,7 @@ input[type=checkbox]{
     height: 1.3rem;
 }
 
-input[type=submit]{
+input[type=submit], button{
     width: fit-content;
     font-size: 1rem;
     color:white;
@@ -139,11 +139,11 @@ input[type=submit]{
     letter-spacing: 2px;
     align-self: center;
 }
-input[type=submit]:hover{
+input[type=submit]:hover, button:hover{
     background-color: blue;
 }
 
-input[type=submit]:active{
+input[type=submit]:active, button:active{
     background-color: cyan;
 }
 
@@ -155,4 +155,16 @@ input[type=submit]:active{
     #col2 div{
         width: auto;
     }
+}
+
+#install{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;    
+}
+
+.button{
+    margin:1em;
 }
