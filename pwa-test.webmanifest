@@ -3,61 +3,51 @@
     "short_name" : "PWA",
     "icons" : [
         {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
-            "sizes": "512x512",
-            "purpose": "maskable"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+            "src": "docs/icons/Icon-16.png",
+            "type": "image/png",
             "sizes": "16x16"
         },
         {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+            "src": "docs/icons/Icon-32.png",
+            "type": "image/png",
             "sizes": "32x32"
         },
         {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+            "src": "docs/icons/Icon-64.png",
+            "type": "image/png",
             "sizes": "64x64"
         },
         {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+            "src": "docs/icons/Icon-128.png",
+            "type": "image/png",
             "sizes": "128x128"
-        },
+         },
         {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
-            "sizes": "180x180"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+            "src": "docs/icons/Icon-192.png",
+            "type": "image/png",
             "sizes": "192x192"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
-            "sizes": "196x196"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+         },
+         {
+            "src": "docs/icons/Icon-256.png",
+            "type": "image/png",
             "sizes": "256x256"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+         },
+         {
+            "src": "docs/icons/Icon-512.png",
+            "type": "image/png",
             "sizes": "512x512"
-        },
-        {
-            "src": "docs/icons/snow.svg",
-            "type": "image/svg",
+         },
+         {
+            "src": "docs/icons/Icon-1024.png",
+            "type": "image/png",
             "sizes": "1024x1024"
-        }
+         },
+         {
+            "src": "docs/icons/Icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+         }
     ],
     "start_url" : "/PWA-test/",
     "scope" : "/PWA-test/",
